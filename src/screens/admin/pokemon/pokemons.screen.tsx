@@ -1,6 +1,7 @@
 import React from "react";
-import { Container, Grid } from "@mui/material";
-import { AdminDrawer } from "modules/admin-drawer";
+import { Box, Container, Grid } from "@mui/material";
+import { AdminDrawer } from "shared/admin-drawer/admin-drawer";
+import { PokemonForm, PokemonsTableFragment } from "modules/admin/pokemons";
 
 export function PokemonsScreen() {
   return (
@@ -8,6 +9,10 @@ export function PokemonsScreen() {
       <AdminDrawer>
         <Container>
           <Grid item>Pokemons</Grid>
+          <PokemonsTableFragment />
+          <Box sx={{ my: 4 }}>
+            <PokemonForm />
+          </Box>
         </Container>
       </AdminDrawer>
     </>
