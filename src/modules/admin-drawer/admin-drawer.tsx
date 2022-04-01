@@ -83,8 +83,8 @@ export function AdminDrawer({ children }: { children: React.ReactNode }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
+      <AppBar position="fixed" open={open} elevation={1}>
+        <Toolbar sx={{ backgroundColor: "white", color: "black" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -95,7 +95,7 @@ export function AdminDrawer({ children }: { children: React.ReactNode }) {
             <Menu />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+            Imagina aqui o nome da aplicacao
           </Typography>
         </Toolbar>
       </AppBar>
@@ -113,6 +113,7 @@ export function AdminDrawer({ children }: { children: React.ReactNode }) {
         open={open}
       >
         <DrawerHeader>
+          Imagina aqui uma logo
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
