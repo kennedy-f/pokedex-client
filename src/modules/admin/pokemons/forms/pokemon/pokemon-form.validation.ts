@@ -12,14 +12,14 @@ export const PokemonFormValidationSchema = yup.object({
   pokedexNumber: yup
     .number()
     .typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER)
-    .required("Tem que ter manito"),
+    .required(INPUT_FIELD_ERRORS.REQUIRED_FIELD),
   atk: yup.number().typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER).notRequired(),
   def: yup.number().typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER).notRequired(),
   sta: yup.number().typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER).notRequired(),
-  generation: yup.string().notRequired(),
-  evolution: yup.string().notRequired(),
-  stat_total: yup.string().notRequired(),
-  legendary: yup.string().notRequired(),
-  cp1: yup.string().notRequired(),
-  cp2: yup.string().notRequired(),
+  generation: yup.string().notRequired().nullable(),
+  evolution: yup.string().notRequired().nullable(),
+  stat_total: yup.string().notRequired().nullable(),
+  legendary: yup.string().notRequired().nullable(),
+  cp1: yup.string().notRequired().nullable(),
+  cp2: yup.string().notRequired().nullable(),
 });

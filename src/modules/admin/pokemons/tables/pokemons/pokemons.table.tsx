@@ -14,9 +14,7 @@ export function PokemonsTable({ pokemons, ...props }: PokemonsTableProps) {
       columns={PokemonsTableColumns}
       pageSize={10}
       rowsPerPageOptions={[10]}
-      checkboxSelection
       autoHeight={true}
-      disableColumnSelector={true}
       {...props}
     />
   );

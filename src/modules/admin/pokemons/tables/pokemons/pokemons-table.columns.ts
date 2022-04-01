@@ -10,11 +10,15 @@ export const PokemonsTableColumns: GridColumns = [
     field: "pokedexNumber",
     headerName: "Pokedex Number",
     flex: 1,
+    minWidth: 100,
+    align: "center",
   },
   {
     field: "name",
     headerName: "Nome",
     flex: 1,
+    minWidth: 100,
+    align: "center",
   },
   {
     field: "type",
@@ -23,6 +27,8 @@ export const PokemonsTableColumns: GridColumns = [
       return row?.type?.[0]?.name || "";
     },
     flex: 1,
+    minWidth: 100,
+    align: "center",
   },
   {
     field: "type2",
@@ -30,26 +36,39 @@ export const PokemonsTableColumns: GridColumns = [
     valueGetter: ({ row }) => {
       return row?.type?.[1]?.name || "";
     },
+    minWidth: 100,
+    align: "center",
     flex: 1,
   },
   {
     field: "atk",
     headerName: "Ataque",
+    minWidth: 100,
+    align: "center",
     flex: 1,
   },
   {
     field: "def",
     headerName: "Defesa",
+    minWidth: 100,
     flex: 1,
+
+    align: "center",
   },
   {
     field: "sta",
     headerName: "Stamina",
+    minWidth: 100,
     flex: 1,
+
+    align: "center",
   },
   {
     field: "stat_total",
     headerName: "Total",
+    minWidth: 100,
     flex: 1,
+
+    align: "center",
   },
 ];

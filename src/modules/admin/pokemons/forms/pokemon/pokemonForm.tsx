@@ -1,22 +1,33 @@
 import React from "react";
-import { PokemonEntity } from "types/entities";
-import { Button, Grid, TextField } from "@mui/material";
+import { PokemonEntity, TypesEntity } from "types/entities";
+import { Autocomplete, Box, Button, Grid, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import { PokemonFormValidationSchema } from "modules/admin/pokemons/forms/pokemon/pokemon-form.validation";
+import { useGet } from "zoe-data";
 
 interface PokemonFormProps {
   pokemon?: PokemonEntity;
+  onComplete: (pokemon: PokemonEntity) => void;
 }
 
-export function PokemonForm({ pokemon }: PokemonFormProps) {
-  const { values, touched, handleChange, handleSubmit, errors, handleBlur } =
-    useFormik({
-      initialValues: pokemon || new PokemonEntity(),
-      validationSchema: PokemonFormValidationSchema,
-      onSubmit: (fields) => {
-        console.log(fields);
-      },
-    });
+export function PokemonForm({ pokemon, onComplete }: PokemonFormProps) {
+  const {
+    values,
+    touched,
+    handleChange,
+    handleSubmit,
+    errors,
+    handleBlur,
+    setFieldValue,
+  } = useFormik({
+    initialValues: pokemon || new PokemonEntity(),
+    validationSchema: PokemonFormValidationSchema,
+    onSubmit: (fields) => {
+      onComplete(fields);
+    },
+  });
+
+  const { data, loading } = useGet<TypesEntity[]>("/types");
 
   return (
     <form onSubmit={handleSubmit}>
@@ -129,12 +140,37 @@ export function PokemonForm({ pokemon }: PokemonFormProps) {
             fullWidth
           />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} md={3}>
+          <Autocomplete
+            options={data || []}
+            getOptionLabel={(option) => option.name}
+            onChange={(_, value) => {
+              setFieldValue("type", value);
+            }}
+            loading={loading}
+            renderInput={(props) => (
+              <TextField
+                {...props}
+                name={"type"}
+                label={"tipo"}
+                value={values.type}
+                onBlur={handleBlur}
+                error={!!touched.type && !!errors.type}
+                helperText={errors?.type}
+                fullWidth
+              />
+            )}
+          />
+        </Grid>
+      </Grid>
+      <Box my={2} />
+      <Grid container justifyContent={"flex-end"}>
+        <Grid item xs={12} md={2} justifySelf={"flex-end"}>
           <Button
             variant={"contained"}
             color={"primary"}
-            fullWidth
             type={"submit"}
+            fullWidth
           >
             Concluir
           </Button>
