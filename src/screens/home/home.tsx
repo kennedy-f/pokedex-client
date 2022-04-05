@@ -1,9 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { Autocomplete, Box, Container, Grid, TextField } from "@mui/material";
-import { useGet } from "zoe-data";
-import { PokemonEntity } from "types/entities";
-import { PokemonCard } from "modules/pokemon/cards/pokemon-card/pokemon-card";
-import { useInView } from "react-intersection-observer";
+import React from "react";
+import { Container, Grid } from "@mui/material";
 import { PokemonList } from "modules/pokemon/fragments/pokemon-list";
 
 export function Home() {

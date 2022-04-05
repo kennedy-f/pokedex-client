@@ -1,34 +1,13 @@
 import React, { useState } from "react";
 import { PokemonEntity } from "types/entities";
-import { Box, Chip, Typography, withTheme } from "@mui/material";
+import { Box, Chip, Typography } from "@mui/material";
 import * as S from "./styled";
-import { useTheme } from "@mui/material/styles";
-import { log } from "util";
+import { PokemonTypeColors } from "shared/constants";
 
 interface PokemonCardProps {
   pokemon: PokemonEntity;
 }
 
-const backgroundColors = {
-  normal: "#A8A878",
-  fighting: "#C03028",
-  flying: "#A890F0",
-  poison: "#A040A0",
-  ground: "#E0C068",
-  rock: "#B8A038",
-  bug: "#A8B820",
-  ghost: "#705898",
-  steel: "#B8B8D0",
-  fire: "#F08030",
-  water: "#6890F0",
-  grass: "#78C850",
-  electric: "#F8D030",
-  psychic: "#F85888",
-  ice: "#98D8D8",
-  dragon: "#7038F8",
-  dark: "#705848",
-  fairy: "#EE99AC",
-};
 const WIDTH = 300;
 const HEIGHT = 300;
 
@@ -47,7 +26,7 @@ export function PokemonCard({ pokemon }: PokemonCardProps) {
         position: "relative",
         backgroundColor:
           // @ts-ignore
-          backgroundColors[pokemon?.type?.[0]?.name || "normal"],
+          PokemonTypeColors[pokemon?.type?.[0]?.name || "normal"],
         cursor: "pointer",
         transition: "all 0.3s ease",
         "&:hover": {

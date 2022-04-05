@@ -16,6 +16,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import PetsIcon from "@mui/icons-material/Pets";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -80,6 +81,8 @@ export function AdminDrawer({ children }: { children: React.ReactNode }) {
     setOpen(false);
   };
 
+  const navigate = useNavigate();
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -124,7 +127,7 @@ export function AdminDrawer({ children }: { children: React.ReactNode }) {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem button>
+          <ListItem button onClick={() => navigate("/admin")}>
             <ListItemIcon>
               <PetsIcon />
             </ListItemIcon>

@@ -1,1 +1,1 @@
-export * from "./pokemonForm";
+export * from "modules/admin/pokemons/forms/pokemon/pokemon-form";
