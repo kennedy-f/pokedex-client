@@ -29,6 +29,10 @@ export function PokemonForm({ pokemon, onComplete }: PokemonFormProps) {
 
   const { data, loading } = useGet<TypesEntity[]>("/types");
 
+  const pokemonImageUrl = values.pokedexNumber
+    ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${values.pokedexNumber}.png`
+    : "https://cdn.neemo.com.br/uploads/settings_webdelivery/logo/3523/no-image.png";
+
   return (
     <form onSubmit={handleSubmit}>
       <Grid container>
@@ -38,8 +42,9 @@ export function PokemonForm({ pokemon, onComplete }: PokemonFormProps) {
               style={{
                 width: 200,
               }}
+              alt={"pokemon-image"}
               loading={"lazy"}
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${values.pokedexNumber}.png`}
+              src={pokemonImageUrl}
             />
           </Box>
         </Grid>
