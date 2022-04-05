@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { AdminDrawer } from "shared/admin-drawer/admin-drawer";
 import { PokemonsTableFragment } from "modules/admin/pokemons";
 
@@ -8,7 +8,9 @@ export function PokemonsScreen() {
     <>
       <AdminDrawer>
         <Container>
-          <Grid item>Pokemons</Grid>
+          <Grid item>
+            <Typography variant={"h4"}> Pokemons</Typography>
+          </Grid>
           <PokemonsTableFragment />
         </Container>
       </AdminDrawer>
