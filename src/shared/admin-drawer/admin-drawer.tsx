@@ -133,6 +133,18 @@ export function AdminDrawer({ children }: { children: React.ReactNode }) {
             </ListItemIcon>
             <ListItemText primary={"Pokemon"} />
           </ListItem>
+          <ListItem button onClick={() => navigate("/admin/types")}>
+            <ListItemIcon>
+              <PetsIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Tipos"} />
+          </ListItem>
+          <ListItem button onClick={() => navigate("/admin/weather")}>
+            <ListItemIcon>
+              <PetsIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Territorios/clima"} />
+          </ListItem>
         </List>
       </Drawer>
       <Main open={open}>
