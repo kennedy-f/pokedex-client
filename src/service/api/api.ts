@@ -1,3 +1,6 @@
 import Axios from "axios";
 
-export const Api = Axios.create({ baseURL: "http://localhost:3000" });
+export const Api = Axios.create({
+  baseURL: "http://localhost:3000",
+  headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+});

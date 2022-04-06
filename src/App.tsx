@@ -5,12 +5,15 @@ import { DefaultMaterialTheme } from "config/theme/material/material.theme";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import { AuthProvider } from "contexts/auth";
 function App() {
   return (
     <>
       <CssBaseline />
       <ThemeProvider theme={DefaultMaterialTheme}>
-        <Routes />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
       </ThemeProvider>
       <ToastContainer />
     </>
