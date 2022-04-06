@@ -16,8 +16,6 @@ export function PokemonList(props: PokemonListProps) {
     threshold: 0,
   });
 
-  const { fetchPost } = usePost("/auth/login");
-
   // fiz paginacao no front e nao no back
   const paginatedPokemons = useMemo(() => {
     if (!data) {
@@ -48,17 +46,6 @@ export function PokemonList(props: PokemonListProps) {
     <>
       <Grid item container xs={12} justifyContent={"center"} sx={{ mb: 4 }}>
         <Grid item xs={6}>
-          <Button
-            onClick={() =>
-              fetchPost({
-                email: "admin@admin.com",
-                password: "admin",
-              })
-            }
-          >
-            {" "}
-            Post{" "}
-          </Button>
           <Autocomplete
             renderInput={(props) => (
               <TextField {...props} label={"Search pokemons"} />
