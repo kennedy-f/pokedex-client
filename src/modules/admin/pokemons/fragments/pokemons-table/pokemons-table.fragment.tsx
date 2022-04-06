@@ -1,9 +1,9 @@
 import React from "react";
 import { PokemonsTable } from "modules/admin/pokemons/tables/pokemons";
-import { useGet } from "zoe-data";
 import { PokemonEntity } from "types/entities";
 import { Button, Grid, LinearProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useGet } from "hooks";
 
 export function PokemonsTableFragment() {
   const { data, loading } = useGet<PokemonEntity[]>("/pokemon");

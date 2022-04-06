@@ -3,7 +3,7 @@ import { PokemonEntity, TypesEntity } from "types/entities";
 import { Autocomplete, Box, Button, Grid, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import { PokemonFormValidationSchema } from "modules/admin/pokemons/forms/pokemon/pokemon-form.validation";
-import { useGet } from "zoe-data";
+import { useGet } from "hooks";
 
 interface PokemonFormProps {
   pokemon?: PokemonEntity;
@@ -53,7 +53,7 @@ export function PokemonForm({ pokemon, onComplete }: PokemonFormProps) {
             <TextField
               name={"name"}
               label={"name"}
-              value={values.name}
+              value={values?.name}
               onChange={handleChange}
               onBlur={handleBlur}
               error={Boolean(touched.name && !!errors.name)}

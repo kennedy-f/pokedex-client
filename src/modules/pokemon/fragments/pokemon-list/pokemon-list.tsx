@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Autocomplete, Box, Grid, TextField } from "@mui/material";
+import { Autocomplete, Box, Button, Grid, TextField } from "@mui/material";
 import { PokemonCard } from "modules/pokemon/cards/pokemon-card/pokemon-card";
 import { PokemonEntity } from "types/entities";
 import { useInView } from "react-intersection-observer";
-import { useGet } from "zoe-data";
+import { useGet, usePost } from "hooks";
 
 interface PokemonListProps {}
 
@@ -15,6 +15,8 @@ export function PokemonList(props: PokemonListProps) {
   const { ref, inView } = useInView({
     threshold: 0,
   });
+
+  const { fetchPost } = usePost("/auth/login");
 
   // fiz paginacao no front e nao no back
   const paginatedPokemons = useMemo(() => {
@@ -46,6 +48,7 @@ export function PokemonList(props: PokemonListProps) {
     <>
       <Grid item container xs={12} justifyContent={"center"} sx={{ mb: 4 }}>
         <Grid item xs={6}>
+          <Button onChange={() => fetchPost({})}> Post </Button>
           <Autocomplete
             renderInput={(props) => (
               <TextField {...props} label={"Search pokemons"} />

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGet } from "zoe-data";
-import { Container, Grid, LinearProgress, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { PokemonEntity } from "types/entities";
 import { AdminDrawer } from "shared";
 import { PokemonFormUpdateFragment } from "modules/admin/pokemons/fragments/pokemon-form-update";
-import { PokemonFormCreateFragment } from "modules/admin/pokemons/fragments/pokemon-form-create";
 import { Api } from "service";
 
 export function PokemonUpdateScreen() {

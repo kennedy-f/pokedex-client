@@ -3,7 +3,7 @@ import { Route, Routes as RoutesWrapper } from "react-router-dom";
 import { PokemonsScreen } from "screens/admin/pokemon/pokemons.screen";
 import { PokemonUpdateScreen } from "screens/admin/pokemon/update";
 import { PokemonCreateScreen, TypesScreen, WeatherScreen } from "screens/admin";
-import { Home } from "screens/home/home";
+import { Home } from "screens/home";
 
 export function Routes() {
   return (

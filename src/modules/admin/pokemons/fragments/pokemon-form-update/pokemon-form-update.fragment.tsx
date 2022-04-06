@@ -1,8 +1,8 @@
 import React from "react";
 import { PokemonEntity } from "types/entities";
 import { PokemonForm } from "modules/admin/pokemons/forms";
-import { useUpdate } from "zoe-data";
 import { toast } from "react-toastify";
+import { useUpdate } from "hooks";
 
 interface PokemonFormUpdateFragmentProps {
   pokemon: PokemonEntity;

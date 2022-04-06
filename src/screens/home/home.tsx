@@ -7,7 +7,10 @@ export function Home() {
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={12} display={"flex"} justifyContent={"center"}>
-          <img src={"https://crisgon.github.io/pokedex/src/images/logo.png"} />
+          <img
+            src={"https://crisgon.github.io/pokedex/src/images/logo.png"}
+            alt={"pokemon-logo-home"}
+          />
         </Grid>
         <PokemonList />
       </Grid>
