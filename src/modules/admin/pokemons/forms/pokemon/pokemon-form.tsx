@@ -36,7 +36,7 @@ export function PokemonForm({ pokemon, onComplete }: PokemonFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <Grid container>
-        <Grid item container xs={2}>
+        <Grid item container xs={12} md={2} sx={{ width: 200 }}>
           <Box justifyContent={"center"}>
             <img
               style={{
