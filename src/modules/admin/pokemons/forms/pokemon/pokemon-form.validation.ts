@@ -13,12 +13,24 @@ export const PokemonFormValidationSchema = yup.object({
     .number()
     .typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER)
     .required(INPUT_FIELD_ERRORS.REQUIRED_FIELD),
-  atk: yup.number().typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER).notRequired(),
-  def: yup.number().typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER).notRequired(),
-  sta: yup.number().typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER).notRequired(),
+  atk: yup
+    .number()
+    .typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER)
+    .required(INPUT_FIELD_ERRORS.REQUIRED_FIELD),
+  def: yup
+    .number()
+    .typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER)
+    .required(INPUT_FIELD_ERRORS.REQUIRED_FIELD),
+  sta: yup
+    .number()
+    .typeError(INPUT_FIELD_ERRORS.INVALID_NUMBER)
+    .required(INPUT_FIELD_ERRORS.REQUIRED_FIELD),
   generation: yup.string().notRequired().nullable(),
   evolution: yup.string().notRequired().nullable(),
-  stat_total: yup.string().notRequired().nullable(),
+  stat_total: yup
+    .string()
+    .notRequired()
+    .required(INPUT_FIELD_ERRORS.REQUIRED_FIELD),
   legendary: yup.string().notRequired().nullable(),
   cp1: yup.string().notRequired().nullable(),
   cp2: yup.string().notRequired().nullable(),

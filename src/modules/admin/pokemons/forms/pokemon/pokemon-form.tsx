@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PokemonEntity, TypesEntity } from "types/entities";
 import { Autocomplete, Box, Button, Grid, TextField } from "@mui/material";
 import { useFormik } from "formik";
@@ -32,6 +32,17 @@ export function PokemonForm({ pokemon, onComplete }: PokemonFormProps) {
   const pokemonImageUrl = values.pokedexNumber
     ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${values.pokedexNumber}.png`
     : "https://cdn.neemo.com.br/uploads/settings_webdelivery/logo/3523/no-image.png";
+
+  const calculateStatusTotal = (atk = 0, sta = 0, def = 0): number => {
+    return atk + sta + def;
+  };
+
+  useEffect(() => {
+    setFieldValue(
+      "stat_total",
+      calculateStatusTotal(values.atk, values.sta, values.def)
+    );
+  }, [values.sta, values.atk, values.def, setFieldValue]);
 
   return (
     <form onSubmit={handleSubmit}>
