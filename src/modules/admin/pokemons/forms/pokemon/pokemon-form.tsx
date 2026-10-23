@@ -40,7 +40,7 @@ export function PokemonForm({ pokemon, onComplete }: PokemonFormProps) {
   useEffect(() => {
     setFieldValue(
       "stat_total",
-      calculateStatusTotal(values.atk, values.sta, values.def)
+      calculateStatusTotal(+values.atk, +values.sta, +values.def)
     );
   }, [values.sta, values.atk, values.def, setFieldValue]);
 
@@ -148,7 +148,7 @@ export function PokemonForm({ pokemon, onComplete }: PokemonFormProps) {
             <TextField
               name={"stat_total"}
               label={"stat_total "}
-              value={values.stat_total}
+              value={values.stat_total || 0}
               onChange={handleChange}
               onBlur={handleBlur}
               error={!!touched.stat_total && !!errors.stat_total}
